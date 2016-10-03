@@ -8,7 +8,7 @@ const nodemon = require('gulp-nodemon');
 
 gulp.task('default', ['sass', 'watch', 'browser-sync']);
 
-gulp.task('sass', function () {
+gulp.task('sass', () => {
   return gulp.src('./src/scss/**/*.scss')
     .pipe(sourcemaps.init())
     .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
@@ -22,7 +22,7 @@ gulp.task('watch', () => {
   gulp.watch('./src/scss/**/*.scss', ['sass']);
 });
 
-gulp.task('browser-sync', ['nodemon'], function () {
+gulp.task('browser-sync', ['nodemon'], () => {
   browserSync.init(null, {
     proxy: "http://localhost:7933",
     files: ["public/**/*.*"],
@@ -30,13 +30,13 @@ gulp.task('browser-sync', ['nodemon'], function () {
     port: 3000,
   });
 });
-gulp.task('nodemon', function (cb) {
+gulp.task('nodemon', (cb) => {
 
   var started = false;
 
   return nodemon({
     script: 'app.js'
-  }).on('start', function () {
+  }).on('start', () => {
     // to avoid nodemon being started multiple times
     // thanks @matthisk
     if (!started) {
