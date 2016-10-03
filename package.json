@@ -1,0 +1,27 @@
+{
+  "name": "wnrt-ct-gamejam",
+  "version": "1.0.0",
+  "description": "A game from the Avans Creative Technologies Gamejam",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wietseneven/Avans-Gamejam.git"
+  },
+  "keywords": [
+    "es6",
+    "game"
+  ],
+  "author": "Wietse Neven & Roelof Tijdens",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wietseneven/Avans-Gamejam/issues"
+  },
+  "homepage": "https://github.com/wietseneven/Avans-Gamejam#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
