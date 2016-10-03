@@ -6,4 +6,15 @@ html
 	body
 		h1= message
 
+		button#getScores Get score
+
+		#tablegoeshere
+
+
+		div
+			form#scoreform
+				input(type="name" placeholder="name")#nameInput
+				input(type="number" placeholder="number")#scoreInput
+				input(type="submit" value="Post score")#postScore
+
 		script(src="assets/scripts/bundle.js")
