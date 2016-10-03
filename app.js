@@ -5,12 +5,12 @@ const app = express();
 
 // Autocompile scss files to css and make them public
 app.use(sassMiddleware({
-  /* Options */
   src: path.join(__dirname, 'src/scss'),
   dest: path.join(__dirname, 'public/assets/styles'),
-  debug: true,
+  debug: false,
   outputStyle: 'compressed',
-  prefix:  '/assets/styles'  // Where prefix is at <link rel="stylesheets" href="prefix/style.css"/>
+  prefix:  '/assets/styles',
+  sourceMap: __dirname + '/public/maps/sourcemaps.maps'
 }));
 
 // Make everything in the public directory public
