@@ -47,6 +47,8 @@ export default class player {
   draw(ctx) {
     ctx.beginPath();
     ctx.arc(this.position.x,this.position.y,40,0,2*Math.PI);
+    ctx.fillStyle = 'red';
+    ctx.fill();
     ctx.stroke();
   }
 
