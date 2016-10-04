@@ -23,7 +23,7 @@ class Game {
   }
 
   setupParticleSystem() {
-    this.particleSystem.start();
+   // this.particleSystem.start();
   }
 
   setupPlayer() {
@@ -42,7 +42,7 @@ class Game {
   render() {
     setInterval(() => {
       this.draw();
-    }, 10);
+    }, 1000/60);
   }
 }
 
