@@ -25,12 +25,38 @@ export default class bullet {
     this.position.y = y;
   }
 
-  update() {
+  update(enemies) {
+    this.getCollision(enemies);
     this.position.x += this.speed * Math.cos(this.angle);
     this.position.y += this.speed * Math.sin(this.angle);
 
     if (this.position.x - (this.width / 2) > this.cwidth) {
       this.remove = true;
+    }
+  }
+
+  getCollision(enemies) {
+    let i = 0;
+    for (let enemie of enemies) {
+      const enX = enemie.position.x;
+      const enY = enemie.position.y;
+      const enW = 10;
+      const enH = 10;
+      const bulX = this.position.x;
+      const bulY = this.position.y;
+      const bulW = this.width;
+      const bulH = this.width;
+      if (enX < bulX + bulW &&
+        enX + enW > bulX &&
+        enY < bulY + bulH &&
+        enH + enY > bulY) {
+
+        console.log('collision');
+        enemie.alive = false;
+
+      }
+
+      i++;
     }
   }
 

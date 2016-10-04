@@ -29,7 +29,8 @@ export default class player {
     this.fireBullet = this.fireBullet.bind(this);
   }
 
-  start() {
+  start(particles) {
+    this.enemies = particles.particles;
     this.watchKeys();
     this.watchCursor();
   }
@@ -173,7 +174,7 @@ export default class player {
       if (bullet.remove) {
         this.bullets.splice(i, 1);
       }
-      bullet.update();
+      bullet.update(this.enemies);
       bullet.draw(ctx);
       i++;
     }

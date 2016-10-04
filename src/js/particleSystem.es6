@@ -4,14 +4,12 @@ export default class particleSystem{
 
     constructor(canvas){
         this.canvas = canvas;
-        console.log('particleSystem');
         this.particles = [];
         this.particleIndex = 0;
     }
 
     start(){
         this.createParticles();
-        console.log('createParticles')
     }
 
     draw(ctx) {

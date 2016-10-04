@@ -27,7 +27,7 @@ class Game {
   }
 
   setupPlayer() {
-    this.player.start();
+    this.player.start(this.particleSystem);
   }
 
   draw() {

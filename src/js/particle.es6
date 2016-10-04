@@ -1,19 +1,11 @@
 export default class particle {
 
   constructor(canvas) {
-    console.log('particle');
     this.canvas = canvas;
 
     this.position = {
       x: this.canvas.canvas.offsetWidth / 2,
       y: this.canvas.canvas.offsetHeight / 2
-    };
-
-    this.hitbox = {
-      links: position.x - 5,
-      boven: position.y + 5,
-      rechts: position.x + 5,
-      onder: position.y - 5
     };
 
     //this.density = 20;
@@ -23,6 +15,7 @@ export default class particle {
       x: Math.random() * 10-2,
       y: Math.random() * 10-2
     };
+    this.alive = true;
   }
 
   update() {
@@ -30,11 +23,17 @@ export default class particle {
     this.position.y += this.speed.y;
   }
 
+  getCollition() {
+
+  }
+
   draw(ctx) {
-    ctx.beginPath();
-    ctx.fillStyle = "green";
-    ctx.arc(this.position.x,this.position.y,10,0,2*Math.PI, true);
-    ctx.closePath();
-    ctx.fill();
+    if (this.alive) {
+      ctx.beginPath();
+      ctx.fillStyle = "green";
+      ctx.arc(this.position.x, this.position.y, 10, 0, 2 * Math.PI, true);
+      ctx.closePath();
+      ctx.fill();
+    }
   }
 }
