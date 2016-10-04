@@ -4,3 +4,4 @@ npm-debug.log
 .DS_Store
 *.map
 public/scripts/bundle.js
+public/assets/scripts/bundle.js

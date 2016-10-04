@@ -6,7 +6,9 @@ export default class player {
     this.position = {
       x: 0,
       y: 0
-    }
+    };
+    this.speed = Math.random() * 10;
+
   }
 
   setStartPosition(x, y) {
@@ -14,8 +16,8 @@ export default class player {
     this.position.y = y;
   }
 
-  move(){
-
+  update() {
+    this.position.x += this.speed;
   }
 
   draw(ctx) {
