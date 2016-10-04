@@ -1,1 +1,9 @@
-{"scores":[{"name":"Wietse","date":"123456","score":"88"},{"name":"Jantje","date":"893249128","score":"99"},{"name":"asdf","score":"212","date":1475531601387},{"name":"asdf","score":"212","date":1475531602637},{"name":"asdf","score":"212","date":1475531604262},{"name":"sf","score":"21","date":1475531619838},{"name":"sf","score":"21","date":1475531620853},{"name":"sdf","score":"1","date":1475531820117},{"name":"f","score":"1","date":1475531825249},{"name":"f","score":"1","date":1475531826117},{"name":"f","score":"1","date":1475531832107},{"name":"asf","score":"12","date":1475532317668},{"name":"jaapie","score":"999","date":1475532824426},{"name":"jaapie","score":"999","date":1475532826799},{"name":"jaapie","score":"999","date":1475532828700},{"name":"jaapie","score":"999","date":1475532829123},{"name":"s","score":"0123012","date":1475532876641},{"name":"2s","score":"2","date":1475533002239},{"name":"2s","score":"2","date":1475533003852},{"name":"2s","score":"2","date":1475533004348},{"name":"2s","score":"2","date":1475533004732}]}
+{
+  "scores": [
+	{
+	  "name": "Wietse",
+	  "date": "123456",
+	  "score": "88"
+	}
+  ]
+}
