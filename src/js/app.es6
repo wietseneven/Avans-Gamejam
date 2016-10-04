@@ -1,9 +1,10 @@
 import Canvas from './canvas.es6';
 import Player from './player.es6';
 import ParticleSystem from './particleSystem.es6';
+import Score from './score.es6';
 
 class Game {
-  constructor(a, b) {
+  constructor() {
     this.canvas = new Canvas();
     this.setupCanvas();
 
@@ -36,7 +37,6 @@ class Game {
     this.player.draw(this.canvas.context);
     this.particleSystem.draw(this.canvas.context);
 
-    //this.draw();
   }
 
   render() {

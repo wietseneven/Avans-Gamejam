@@ -5,7 +5,6 @@ export default class particleSystem{
     constructor(canvas){
         this.canvas = canvas;
         this.particles = [];
-        this.particleIndex = 0;
     }
 
     start(){
@@ -13,20 +12,23 @@ export default class particleSystem{
     }
 
     draw(ctx) {
+        if (this.particles.length < 1) this.createParticles();
+        let i = 0;
         for (let particle of this.particles) {
+            if (!particle.alive) {
+                this.particles.splice(i, 1);
+            }
             particle.draw(ctx);
             particle.update();
+            i++;
         }
     }
 
     createParticles() {
-        this.life = 0;
         for (let i = 0; i < 100; i++) {
             let particle = new Particle(this.canvas);
             this.particles.push(particle);
-            this.particleIndex ++;
         }
-        console.log(this.particleIndex);
     }
 }
 
