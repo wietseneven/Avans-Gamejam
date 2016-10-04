@@ -25,6 +25,8 @@ export default class player {
       mousedown: false
     };
 
+    this.alive = 10;
+
     this.handleCursor = this.handleCursor.bind(this);
     this.fireBullet = this.fireBullet.bind(this);
   }
@@ -184,33 +186,42 @@ export default class player {
         en.Y < bul.Y + bul.H &&
         en.H + en.Y > bul.Y) {
 
-        console.log('dead');
+        this.alive--;
+        console.log(this.alive);
 
       }
     }
   }
 
   draw(ctx) {
-    this.handleKeys();
-    this.handleCursor();
+    if (this.alive > 0) {
+      this.handleKeys();
+      this.handleCursor();
 
-    let i = 0;
-    for (let bullet of this.bullets) {
-      if (bullet.remove) {
-        this.bullets.splice(i, 1);
+      let i = 0;
+      for (let bullet of this.bullets) {
+        if (bullet.remove) {
+          this.bullets.splice(i, 1);
+        }
+        bullet.update(this.enemies);
+        bullet.draw(ctx);
+        i++;
       }
-      bullet.update(this.enemies);
-      bullet.draw(ctx);
-      i++;
-    }
 
-    this.watchCollision();
+      this.watchCollision();
+    }
 
     ctx.beginPath();
     ctx.arc(this.position.x, this.position.y, 20, 0, 2 * Math.PI);
     ctx.fillStyle = 'red';
     ctx.fill();
     ctx.stroke();
+
+    ctx.font="20px Georgia";
+    ctx.fillStyle = 'white';
+    ctx.textAlgin = 'center';
+    ctx.fillText(this.alive,this.position.x - 10,this.position.y + 5);
+
   }
 
 }
