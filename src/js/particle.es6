@@ -1,20 +1,22 @@
 export default class player {
 
   constructor(canvas) {
+    console.log('particle');
     this.canvas = canvas;
-
     this.position = {
-      x: 128,
-      y: 128
-    };
-
+      x: 0,
+      y: 0
+    }
   }
 
-  start() {
-
+  setStartPosition(x, y) {
+    this.position.x = x;
+    this.position.y = y;
   }
 
+  move(){
 
+  }
 
   draw(ctx) {
     ctx.beginPath();
@@ -24,7 +26,4 @@ export default class player {
     ctx.fill();
   }
 
-}
-function debug(string) {
-  console.log(string);
 }

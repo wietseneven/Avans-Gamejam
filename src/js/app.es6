@@ -1,13 +1,16 @@
 import Canvas from './canvas.es6';
 import Player from './player.es6';
+import ParticleSystem from './particleSystem.es6';
 
 class Game {
   constructor(a, b) {
     this.canvas = new Canvas();
-
     this.setupCanvas();
-    this.player = new Player(this.canvas);
 
+    this.particleSystem = new ParticleSystem(this.canvas);
+    this.setupParticleSystem();
+
+    this.player = new Player(this.canvas);
     this.setupPlayer();
   }
 
@@ -17,6 +20,10 @@ class Game {
     const height = window.innerHeight;
     this.canvas.setDimensions(width, height);
     // this.canvas.draw();
+  }
+
+  setupParticleSystem() {
+    this.particleSystem.start();
   }
 
   setupPlayer() {

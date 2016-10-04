@@ -1,9 +1,10 @@
 import particle from './particle.es6'
+export default class particleSystem{
 
-class particleSystem{
     constructor(){
-        new particle
-        console.log('hoiiii');
+        console.log('particleSystem');
+        this.particle = particle;
     }
+    
 }
 
