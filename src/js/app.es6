@@ -1,13 +1,13 @@
 import Canvas from './canvas.es6';
+import Player from './player.es6';
 
 class Game {
   constructor(a, b) {
     this.canvas = new Canvas();
 
     this.setupCanvas();
+    this.player = new Player(this.canvas);
 
-    // this._c.watchButton('#getScores', 'get');
-    // this._c.watchButton('#postScore', 'post');
   }
 
   setupCanvas() {
@@ -17,6 +17,12 @@ class Game {
     const height = window.innerHeight;
     this.canvas.setDimensions(width, height);
     this.canvas.draw();
+
+    this.setupPlayer();
+  }
+
+  setupPlayer() {
+    this.player.start();
   }
 }
 
