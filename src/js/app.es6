@@ -1,5 +1,4 @@
 import Canvas from './canvas.es6';
-import Highscores from "./highscores.es6";
 
 class Game {
   constructor(a, b) {
