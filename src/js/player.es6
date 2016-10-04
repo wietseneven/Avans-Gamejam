@@ -4,7 +4,13 @@ export default class player {
 
   constructor(canvas) {
     this.canvas = canvas;
-    this.keys = '';
+    this.keys = {
+      left: false,
+      right: false,
+      up: false,
+      down: false,
+      space: false
+    };
 
     this.bullets = [];
 
@@ -22,47 +28,86 @@ export default class player {
 
   watchKeys() {
     window.onkeydown = ((e) => {
-      this.keys = e.which;
+      switch (e.which) {
+        case 37: // left
+        case 65: // a
+          this.keys.left = true;
+          break;
+
+        case 38: // up
+        case 87: // w
+          this.keys.up = true;
+          break;
+
+        case 39: // right
+        case 68: // d
+          this.keys.right = true;
+          break;
+
+        case 40: // down
+        case 83: // s
+          this.keys.down = true;
+          break;
+
+        case 32:
+          this.keys.space = true;
+      }
       //e.preventDefault();
     });
-    window.onkeyup = (() => {
-      this.keys = '';
+    window.onkeyup = ((e) => {
+      switch (e.which) {
+        case 37: // left
+        case 65: // a
+          this.keys.left = false;
+          break;
+
+        case 38: // up
+        case 87: // w
+          this.keys.up = false;
+          break;
+
+        case 39: // right
+        case 68: // d
+          this.keys.right = false;
+          break;
+
+        case 40: // down
+        case 83: // s
+          this.keys.down = false;
+          break;
+
+        case 32:
+          this.keys.space = false;
+      }
     });
   }
 
   handleKeys() {
     let speed = 3;
     //console.log(this.keys);
-    switch(this.keys) {
-      case 37: // left
-      case 65: // a
-        debug('left');
-        this.position.x -= speed;
-        break;
+    if (this.keys.left) {
+      debug('left');
+      this.position.x -= speed;
+    }
 
-      case 38: // up
-      case 87: // w
-        debug('up');
-        this.position.y -= speed;
-        break;
+    if (this.keys.up) {
+      debug('up');
+      this.position.y -= speed;
+    }
 
-      case 39: // right
-      case 68: // d
-        debug('right');
-        this.position.x += speed;
-        break;
+    if (this.keys.right) {
+      debug('right');
+      this.position.x += speed;
+    }
 
-      case 40: // down
-      case 83: // s
-        debug('down');
-        this.position.y += speed;
-        break;
+    if (this.keys.down) {
+      debug('down');
+      this.position.y += speed;
+    }
 
-      case 32:
-        debug('space');
-        this.fireBullet();
-
-      default: return; // exit this handler for other keys
+    if (this.keys.space) {
+      debug('space');
+      this.fireBullet();
     }
   }
 
@@ -82,7 +127,7 @@ export default class player {
     }
 
     ctx.beginPath();
-    ctx.arc(this.position.x,this.position.y,40,0,2*Math.PI);
+    ctx.arc(this.position.x, this.position.y, 40, 0, 2 * Math.PI);
     ctx.fillStyle = 'red';
     ctx.fill();
     ctx.stroke();
