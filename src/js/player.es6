@@ -16,7 +16,7 @@ export default class player {
 
     this.position = {
       x: this.canvas.canvas.offsetWidth / 2,
-      y: this.canvas.canvas.offsetHeight / 2
+      y: this.canvas.canvas.offsetHeight / 3
     };
 
     this.cursor = {
@@ -24,6 +24,8 @@ export default class player {
       y: 0,
       mousedown: false
     };
+
+    this.alive = 10;
 
     this.handleCursor = this.handleCursor.bind(this);
     this.fireBullet = this.fireBullet.bind(this);
@@ -165,18 +167,54 @@ export default class player {
     this.bullets.push(bullet);
   }
 
-  draw(ctx) {
-    this.handleKeys();
-    this.handleCursor();
+  watchCollision() {
+    for (let enemie of this.enemies) {
+      const en = {
+        X: enemie.position.x,
+        Y: enemie.position.y,
+        W: 10,
+        H: 10
+      };
+      const bul = {
+        X: this.position.x,
+        Y: this.position.y,
+        W: 20,
+        H: 20
+      };
+      if (en.X < bul.X + bul.W &&
+        en.X + en.W > bul.X &&
+        en.Y < bul.Y + bul.H &&
+        en.H + en.Y > bul.Y) {
 
-    let i = 0;
-    for (let bullet of this.bullets) {
-      if (bullet.remove) {
-        this.bullets.splice(i, 1);
+        this.alive--;
+        console.log(this.alive);
+
       }
-      bullet.update(this.enemies);
-      bullet.draw(ctx);
-      i++;
+    }
+  }
+
+  draw(ctx) {
+    if (this.alive > 0) {
+      this.handleKeys();
+      this.handleCursor();
+
+      let i = 0;
+      for (let bullet of this.bullets) {
+        if (bullet.remove) {
+          this.bullets.splice(i, 1);
+        }
+        bullet.update(this.enemies);
+        bullet.draw(ctx);
+        i++;
+      }
+
+      this.watchCollision();
+    } else {
+      ctx.font="200px Arial";
+      ctx.fillStyle = 'white';
+      ctx.textAlgin = 'center';
+      ctx.fillText("YOUR",20,170);
+      ctx.fillText("DEAD",20,350);
     }
 
     ctx.beginPath();
@@ -184,6 +222,12 @@ export default class player {
     ctx.fillStyle = 'red';
     ctx.fill();
     ctx.stroke();
+
+    ctx.font="20px Arial";
+    ctx.fillStyle = 'white';
+    ctx.textAlgin = 'center';
+    ctx.fillText(this.alive,this.position.x - 10,this.position.y + 5);
+
   }
 
 }

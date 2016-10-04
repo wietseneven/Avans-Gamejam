@@ -68,7 +68,6 @@ export default class bullet {
   }
 
   getCollision(enemies) {
-    let i = 0;
     for (let enemie of enemies) {
       const en = {
         X: enemie.position.x,
@@ -90,8 +89,6 @@ export default class bullet {
         enemie.alive = false;
 
       }
-
-      i++;
     }
   }
 
