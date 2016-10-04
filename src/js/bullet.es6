@@ -38,20 +38,23 @@ export default class bullet {
   getCollision(enemies) {
     let i = 0;
     for (let enemie of enemies) {
-      const enX = enemie.position.x;
-      const enY = enemie.position.y;
-      const enW = 10;
-      const enH = 10;
-      const bulX = this.position.x;
-      const bulY = this.position.y;
-      const bulW = this.width;
-      const bulH = this.width;
-      if (enX < bulX + bulW &&
-        enX + enW > bulX &&
-        enY < bulY + bulH &&
-        enH + enY > bulY) {
+      const en = {
+        X: enemie.position.x,
+        Y: enemie.position.y,
+        W: 10,
+        H: 10
+      };
+      const bul = {
+        X: this.position.x,
+        Y: this.position.y,
+        W: this.width,
+        H: this.width
+      };
+      if (en.X < bul.X + bul.W &&
+        en.X + en.W > bul.X &&
+        en.Y < bul.Y + bul.H &&
+        en.H + en.Y > bul.Y) {
 
-        console.log('collision');
         enemie.alive = false;
 
       }
