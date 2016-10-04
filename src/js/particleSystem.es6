@@ -5,6 +5,9 @@ export default class particleSystem{
         console.log('particleSystem');
         this.particle = particle;
     }
-    
+
+    start(){
+        
+    }
 }
 
