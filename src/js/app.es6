@@ -23,7 +23,7 @@ class Game {
   }
 
   setupParticleSystem() {
-   // this.particleSystem.start();
+    this.particleSystem.start();
   }
 
   setupPlayer() {

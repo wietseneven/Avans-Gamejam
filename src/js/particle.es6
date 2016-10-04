@@ -9,10 +9,16 @@ export default class particle {
       y: this.canvas.canvas.offsetHeight / 2
     };
 
-    this.density = 20;
-    this.particleSize = 10;
-    this.gravity = 0.5;
-    this.maxLife = 100;
+    this.hitbox = {
+      links: position.x - 5,
+      boven: position.y + 5,
+      rechts: position.x + 5,
+      onder: position.y - 5
+    };
+
+    //this.density = 20;
+    //this.particleSize = 10;
+    //this.maxLife = 100;
     this.speed = {
       x: Math.random() * 10-2,
       y: Math.random() * 10-2
@@ -21,9 +27,7 @@ export default class particle {
 
   update() {
     this.position.x += this.speed.x;
-    this.position.y += this.speed.y
-
-
+    this.position.y += this.speed.y;
   }
 
   draw(ctx) {
@@ -33,5 +37,4 @@ export default class particle {
     ctx.closePath();
     ctx.fill();
   }
-
 }
