@@ -34,7 +34,7 @@ class Game {
   render() {
     setInterval(() => {
       this.draw();
-    }, 1000/60);
+    }, 10);
   }
 }
 
