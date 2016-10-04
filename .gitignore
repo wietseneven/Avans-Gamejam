@@ -5,3 +5,4 @@ npm-debug.log
 *.map
 public/scripts/bundle.js
 public/assets/scripts/bundle.js
+public/assets/scripts/bundle.js
