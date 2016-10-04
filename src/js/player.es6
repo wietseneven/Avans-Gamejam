@@ -188,5 +188,4 @@ export default class player {
 }
 function debug(string) {
   //console.log(string);
-
 }

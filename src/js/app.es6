@@ -1,6 +1,7 @@
 import Canvas from './canvas.es6';
 import Player from './player.es6';
 import ParticleSystem from './particleSystem.es6';
+import Socket from './socket.es6';
 
 class Game {
   constructor(a, b) {
@@ -12,6 +13,8 @@ class Game {
 
     this.player = new Player(this.canvas);
     this.setupPlayer();
+
+    this.socket = new Socket(socket);
   }
 
   setupCanvas() {
