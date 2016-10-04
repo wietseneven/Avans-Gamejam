@@ -16,6 +16,7 @@ class Game {
     const width = window.innerWidth;
     const height = window.innerHeight;
     this.canvas.setDimensions(width, height);
+    this.canvas.draw();
   }
 }
 
