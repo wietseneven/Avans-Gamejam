@@ -13,19 +13,31 @@ class Game {
 
   setupCanvas() {
     this.canvas.setCanvas('#game');
-
     const width = window.innerWidth;
     const height = window.innerHeight;
     this.canvas.setDimensions(width, height);
-    this.canvas.draw();
+    // this.canvas.draw();
   }
 
   setupPlayer() {
-    this.player.start();
+    //this.player.start();
+  }
+
+  draw() {
+    this.player.draw(this.canvas.context);
+
+    //this.draw();
+  }
+
+  render() {
+    setInterval(() => {
+      this.draw();
+    }, 1000/60);
   }
 }
 
 document.addEventListener("DOMContentLoaded", function(event) {
-  let t = new Game(0,0);
+  let game = new Game(0,0);
+  game.render();
   console.log('Hello world!');
 });

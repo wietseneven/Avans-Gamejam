@@ -6,14 +6,19 @@ export default class player {
     this.position = {
       x: 100,
       y: 100
-    }
+    };
+
+    // this.draw = this.draw.bind(this);
   }
 
   start() {
-    this.canvas.context.font = "30px Arial";
-    this.canvas.context.fillText("Hello World",10,50);
 
+  }
 
+  draw(ctx) {
+    ctx.beginPath();
+    ctx.arc(this.position.x,this.position.y,40,0,2*Math.PI);
+    ctx.stroke();
   }
 
 }
