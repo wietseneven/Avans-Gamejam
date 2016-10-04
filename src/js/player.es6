@@ -15,8 +15,8 @@ export default class player {
     this.bullets = [];
 
     this.position = {
-      x: 100,
-      y: 100
+      x: this.canvas.canvas.offsetWidth / 2,
+      y: this.canvas.canvas.offsetHeight / 2
     };
 
     this.cursor = {
@@ -85,6 +85,7 @@ export default class player {
           break;
 
         case 32:
+          this.cursor.mousedown = false;
           this.keys.space = false;
       }
     });
@@ -178,7 +179,7 @@ export default class player {
     }
 
     ctx.beginPath();
-    ctx.arc(this.position.x, this.position.y, 40, 0, 2 * Math.PI);
+    ctx.arc(this.position.x, this.position.y, 20, 0, 2 * Math.PI);
     ctx.fillStyle = 'red';
     ctx.fill();
     ctx.stroke();
