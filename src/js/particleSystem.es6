@@ -20,7 +20,6 @@ export default class particleSystem{
     }
 
     createParticles() {
-        this.life = 0;
         for (let i = 0; i < 100; i++) {
             let particle = new Particle(this.canvas);
             this.particles.push(particle);

@@ -4,13 +4,12 @@ export default class particle {
     this.canvas = canvas;
 
     this.position = {
-      x: this.canvas.canvas.offsetWidth / 2,
-      y: this.canvas.canvas.offsetHeight / 2
+      x: this.canvas.canvas.offsetWidth / Math.floor((Math.random() * 10) + 1),
+      y: this.canvas.canvas.offsetHeight / Math.floor((Math.random() * 10) + 1)
     };
 
-    //this.density = 20;
-    //this.particleSize = 10;
-    //this.maxLife = 100;
+    console.log(this.position);
+
     this.speed = {
       x: Math.random() * 10 - 2,
       y: Math.random() * 10 - 2
