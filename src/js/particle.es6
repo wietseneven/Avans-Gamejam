@@ -12,13 +12,45 @@ export default class particle {
     //this.particleSize = 10;
     //this.maxLife = 100;
     this.speed = {
-      x: Math.random() * 10-2,
-      y: Math.random() * 10-2
+      x: Math.random() * 10 - 2,
+      y: Math.random() * 10 - 2
     };
     this.alive = true;
   }
 
   update() {
+    //Left wall
+    if (this.position.x < 0) {
+      if (this.speed.x > 0) {
+        this.speed.x = -this.speed.x;
+      } else {
+        this.speed.x = Math.abs(this.speed.x);
+      }
+    }
+    //Right wall
+    if (this.position.x > this.canvas.canvas.offsetWidth) {
+      if (this.speed.x > 0) {
+        this.speed.x = -this.speed.x;
+      } else {
+        this.speed.x = Math.abs(this.speed.x);
+      }
+    }
+    //Top wall
+    if (this.position.y < 0) {
+      if (this.speed.y > 0) {
+        this.speed.y = -this.speed.y;
+      } else {
+        this.speed.y = Math.abs(this.speed.y);
+      }
+    }
+    //Bottom wall
+    if (this.position.y > this.canvas.canvas.offsetHeight) {
+      if (this.speed.y > 0) {
+        this.speed.y = -this.speed.y;
+      } else {
+        this.speed.y = Math.abs(this.speed.y);
+      }
+    }
     this.position.x += this.speed.x;
     this.position.y += this.speed.y;
   }

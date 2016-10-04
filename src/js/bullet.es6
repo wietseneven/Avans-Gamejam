@@ -27,6 +27,38 @@ export default class bullet {
 
   update(enemies) {
     this.getCollision(enemies);
+    //Left wall
+    if (this.position.x < 0) {
+      if (this.speed > 0) {
+        this.speed = -this.speed;
+      } else {
+        this.speed = Math.abs(this.speed);
+      }
+    }
+    //Right wall
+    if (this.position.x > this.cwidth) {
+      if (this.speed > 0) {
+        this.speed = -this.speed;
+      } else {
+        this.speed = Math.abs(this.speed);
+      }
+    }
+    //Top wall
+    if (this.position.y < 0) {
+      if (this.speed > 0) {
+        this.speed = -this.speed;
+      } else {
+        this.speed = Math.abs(this.speed);
+      }
+    }
+    //Bottom wall
+    if (this.position.y > this.cheight) {
+      if (this.speed > 0) {
+        this.speed = -this.speed;
+      } else {
+        this.speed = Math.abs(this.speed);
+      }
+    }
     this.position.x += this.speed * Math.cos(this.angle);
     this.position.y += this.speed * Math.sin(this.angle);
 
