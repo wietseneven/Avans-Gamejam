@@ -121,9 +121,14 @@ export default class player {
   draw(ctx) {
     this.handleKeys();
 
+    let i = 0;
     for (let bullet of this.bullets) {
-      //ullet.move();
+      if (bullet.remove) {
+        this.bullets.splice(i, 1);
+      }
+      bullet.update();
       bullet.draw(ctx);
+      i++;
     }
 
     ctx.beginPath();
@@ -135,5 +140,5 @@ export default class player {
 
 }
 function debug(string) {
-  console.log(string);
+  //console.log(string);
 }

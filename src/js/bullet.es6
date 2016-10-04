@@ -4,7 +4,14 @@ export default class bullet {
     this.position = {
       x: 0,
       y: 0
-    }
+    };
+    this.speed = Math.random() * 20;
+
+    this.update = this.update.bind(this);
+
+    this.startTime = Date.now();
+
+    this.remove = false;
   }
 
   setStartPosition(x, y) {
@@ -12,8 +19,12 @@ export default class bullet {
     this.position.y = y;
   }
 
-  move() {
+  update() {
+    this.position.x += this.speed;
 
+    if (Date.now() - 200 > this.startTime) {
+      this.remove = true;
+    }
   }
 
   draw(ctx) {
