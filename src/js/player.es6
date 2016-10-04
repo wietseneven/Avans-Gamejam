@@ -12,7 +12,36 @@ export default class player {
   }
 
   start() {
+    this.watchKeys();
+  }
 
+  watchKeys() {
+    window.onkeydown = ((e) => {
+      switch(e.which) {
+        case 37: // left
+          debug('left');
+          this.position.x--;
+          break;
+
+        case 38: // up
+          debug('up');
+          this.position.y--;
+          break;
+
+        case 39: // right
+          debug('right');
+          this.position.x++;
+          break;
+
+        case 40: // down
+          debug('down');
+          this.position.y++;
+          break;
+
+        default: return; // exit this handler for other keys
+      }
+      e.preventDefault();
+    })
   }
 
   draw(ctx) {
@@ -21,4 +50,7 @@ export default class player {
     ctx.stroke();
   }
 
+}
+function debug(string) {
+  console.log(string);
 }

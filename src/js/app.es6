@@ -20,10 +20,11 @@ class Game {
   }
 
   setupPlayer() {
-    //this.player.start();
+    this.player.start();
   }
 
   draw() {
+    this.canvas.context.clearRect(0, 0, this.canvas.canvas.width, this.canvas.canvas.height);
     this.player.draw(this.canvas.context);
 
     //this.draw();
