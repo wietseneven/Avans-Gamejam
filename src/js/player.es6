@@ -12,6 +12,8 @@ export default class player {
   start() {
     this.canvas.context.font = "30px Arial";
     this.canvas.context.fillText("Hello World",10,50);
+
+
   }
 
 }

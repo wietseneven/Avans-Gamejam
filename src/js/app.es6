@@ -8,6 +8,7 @@ class Game {
     this.setupCanvas();
     this.player = new Player(this.canvas);
 
+    this.setupPlayer();
   }
 
   setupCanvas() {
@@ -17,8 +18,6 @@ class Game {
     const height = window.innerHeight;
     this.canvas.setDimensions(width, height);
     this.canvas.draw();
-
-    this.setupPlayer();
   }
 
   setupPlayer() {
