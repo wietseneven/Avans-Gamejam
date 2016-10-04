@@ -62,7 +62,7 @@ export default class bullet {
     this.position.x += this.speed * Math.cos(this.angle);
     this.position.y += this.speed * Math.sin(this.angle);
 
-    if (this.position.x - (this.width / 2) > this.cwidth) {
+    if (this.position.x - (this.width / 2) > this.cwidth || Date.now() - 1000 > this.startTime) {
       this.remove = true;
     }
   }
