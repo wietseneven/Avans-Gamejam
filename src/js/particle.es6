@@ -13,11 +13,15 @@ export default class particle {
     this.particleSize = 10;
     this.gravity = 0.5;
     this.maxLife = 100;
-    this.speed = 2;
+    this.speed = {
+      x: Math.random() * 10-2,
+      y: Math.random() * 10-2
+    };
   }
 
   update() {
-    this.position.x += this.speed;
+    this.position.x += this.speed.x;
+    this.position.y += this.speed.y
 
 
   }
