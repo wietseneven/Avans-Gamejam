@@ -209,6 +209,12 @@ export default class player {
       }
 
       this.watchCollision();
+    } else {
+      ctx.font="200px Arial";
+      ctx.fillStyle = 'white';
+      ctx.textAlgin = 'center';
+      ctx.fillText("YOUR",20,170);
+      ctx.fillText("DEAD",20,350);
     }
 
     ctx.beginPath();
@@ -217,7 +223,7 @@ export default class player {
     ctx.fill();
     ctx.stroke();
 
-    ctx.font="20px Georgia";
+    ctx.font="20px Arial";
     ctx.fillStyle = 'white';
     ctx.textAlgin = 'center';
     ctx.fillText(this.alive,this.position.x - 10,this.position.y + 5);
