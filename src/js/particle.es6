@@ -1,23 +1,25 @@
-export default class player {
+export default class particle {
 
   constructor(canvas) {
     console.log('particle');
     this.canvas = canvas;
+
     this.position = {
-      x: 0,
-      y: 0
+      x: this.canvas.canvas.offsetWidth / 2,
+      y: this.canvas.canvas.offsetHeight / 2
     };
-    this.speed = Math.random() * 10;
 
-  }
-
-  setStartPosition(x, y) {
-    this.position.x = x;
-    this.position.y = y;
+    this.density = 20;
+    this.particleSize = 10;
+    this.gravity = 0.5;
+    this.maxLife = 100;
+    this.speed = 2;
   }
 
   update() {
     this.position.x += this.speed;
+
+
   }
 
   draw(ctx) {
