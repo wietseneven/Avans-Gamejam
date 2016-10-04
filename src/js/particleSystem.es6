@@ -1,10 +1,9 @@
-import particle from './particle.es6'
+import Particle from './particle.es6'
 
 export default class particleSystem{
 
     constructor(){
         console.log('particleSystem');
-        this.particle = particle;
 
         this.particles = [];
 
@@ -13,18 +12,26 @@ export default class particleSystem{
             y: 300
         };
 
-        this.createParticles();
     }
 
     start(){
+        this.createParticles();
+
         console.log('hoi')
     }
 
-    createParticles() {
-        let particle = new Particle();
-        particle.setStartPosition(this.position.x, this.position.y);
+    draw(ctx) {
+        for (let particle of this.particles) {
+            particle.draw(ctx);
+        }
+    }
 
-        this.particles.push(particle);
+    createParticles() {
+        for (let i = 0; i < 100; i++) {
+            let particle = new Particle();
+            particle.setStartPosition(this.position.x, this.position.y);
+            this.particles.push(particle);
+        }
     }
 }
 

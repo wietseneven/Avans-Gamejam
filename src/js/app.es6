@@ -34,6 +34,7 @@ class Game {
     this.canvas.context.clearRect(0, 0, this.canvas.canvas.width, this.canvas.canvas.height);
 
     this.player.draw(this.canvas.context);
+    this.particleSystem.draw(this.canvas.context);
 
     //this.draw();
   }
