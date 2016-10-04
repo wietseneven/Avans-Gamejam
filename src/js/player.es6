@@ -16,7 +16,7 @@ export default class player {
 
     this.position = {
       x: this.canvas.canvas.offsetWidth / 2,
-      y: this.canvas.canvas.offsetHeight / 2
+      y: this.canvas.canvas.offsetHeight / 3
     };
 
     this.cursor = {
@@ -165,6 +165,31 @@ export default class player {
     this.bullets.push(bullet);
   }
 
+  watchCollision() {
+    for (let enemie of this.enemies) {
+      const en = {
+        X: enemie.position.x,
+        Y: enemie.position.y,
+        W: 10,
+        H: 10
+      };
+      const bul = {
+        X: this.position.x,
+        Y: this.position.y,
+        W: 20,
+        H: 20
+      };
+      if (en.X < bul.X + bul.W &&
+        en.X + en.W > bul.X &&
+        en.Y < bul.Y + bul.H &&
+        en.H + en.Y > bul.Y) {
+
+        console.log('dead');
+
+      }
+    }
+  }
+
   draw(ctx) {
     this.handleKeys();
     this.handleCursor();
@@ -178,6 +203,8 @@ export default class player {
       bullet.draw(ctx);
       i++;
     }
+
+    this.watchCollision();
 
     ctx.beginPath();
     ctx.arc(this.position.x, this.position.y, 20, 0, 2 * Math.PI);
