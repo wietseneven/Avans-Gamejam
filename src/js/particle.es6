@@ -55,14 +55,10 @@ export default class particle {
     this.position.y += this.speed.y;
   }
 
-  getCollition() {
-
-  }
-
   draw(ctx) {
     if (this.alive) {
       ctx.beginPath();
-      ctx.fillStyle = "green";
+      ctx.fillStyle = "lime";
       ctx.arc(this.position.x, this.position.y, 10, 0, 2 * Math.PI, true);
       ctx.closePath();
       ctx.fill();
