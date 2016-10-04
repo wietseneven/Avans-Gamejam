@@ -11,6 +11,21 @@ export default class canvas {
   setDimensions(width, height){
     this.canvas.width = width;
     this.canvas.height = height;
+    this.checkRetina();
+  }
+
+  checkRetina() {
+    if (window.devicePixelRatio > 1) {
+      var canvasWidth = this.canvas.width;
+      var canvasHeight = this.canvas.height;
+
+      this.canvas.width = canvasWidth * window.devicePixelRatio;
+      this.canvas.height = canvasHeight * window.devicePixelRatio;
+      this.canvas.style.width = canvasWidth + 'px';
+      this.canvas.style.height = canvasHeight + 'px';
+
+      this.context.scale(window.devicePixelRatio, window.devicePixelRatio);
+    }
   }
 
   draw() {
